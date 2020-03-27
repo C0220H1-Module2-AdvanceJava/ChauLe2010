@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/abstractclass_interface.iml" filepath="$PROJECT_DIR$/abstractclass_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/btTriangle.iml" filepath="$PROJECT_DIR$/btTriangle.iml" />
     </modules>
   </component>
 </project>

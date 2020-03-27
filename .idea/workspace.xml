@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72384223-5c79-4752-95aa-419f67ca39ab" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="d7f6d06c-8637-4737-ae4a-8d4c45b6d893" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,47 +11,122 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1Zh0OVpZiFBuGWZdNoQTtGyNXfH" />
+  <component name="ProjectId" id="1Zd0jvMaT5whcvy482Owq1iDIjw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../cloneRepo/Module2/btTimMaxTrongMang2Chieu" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="OPEN_URL_DIALOG">
+      <recent name="https://github.com/huyfr/btTimMaxTrongMang2Chieu/blob/master/src/FindMax.java" />
+    </key>
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="btTriangle" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="72384223-5c79-4752-95aa-419f67ca39ab" name="Default Changelist" comment="" />
-      <created>1585275986429</created>
+      <changelist id="d7f6d06c-8637-4737-ae4a-8d4c45b6d893" name="Default Changelist" comment="" />
+      <created>1585153801951</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1585275986429</updated>
-      <workItem from="1585275988233" duration="916000" />
-      <workItem from="1585278587632" duration="2943000" />
+      <updated>1585153801951</updated>
+      <workItem from="1585153804106" duration="5258000" />
+      <workItem from="1585195706714" duration="941000" />
+      <workItem from="1585203819792" duration="282000" />
+      <workItem from="1585209315362" duration="652000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="451" y="93" key="#Project_Structure" timestamp="1585153806751">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="451" y="93" key="#Project_Structure/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585153806751" />
+    <state x="717" y="164" key="#com.intellij.ide.util.MemberChooser" timestamp="1585154593110">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="717" y="164" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585154593110" />
+    <state x="654" y="152" key="#xdebugger.evaluate" timestamp="1585155080985">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="654" y="152" key="#xdebugger.evaluate/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585155080985" />
+    <state x="686" y="181" key="FileChooserDialogImpl" timestamp="1585203857571">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="686" y="181" key="FileChooserDialogImpl/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585203857571" />
+    <state width="1864" height="316" key="GridCell.Tab.0.bottom" timestamp="1585159077402">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1864" height="316" key="GridCell.Tab.0.bottom/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585159077402" />
+    <state width="1864" height="316" key="GridCell.Tab.0.center" timestamp="1585159077402">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1864" height="316" key="GridCell.Tab.0.center/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585159077402" />
+    <state width="1864" height="316" key="GridCell.Tab.0.left" timestamp="1585159077402">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1864" height="316" key="GridCell.Tab.0.left/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585159077402" />
+    <state width="1864" height="316" key="GridCell.Tab.0.right" timestamp="1585159077402">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1864" height="316" key="GridCell.Tab.0.right/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585159077402" />
+    <state width="1864" height="316" key="GridCell.Tab.1.bottom" timestamp="1585159077403">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1864" height="316" key="GridCell.Tab.1.bottom/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585159077403" />
+    <state width="1864" height="316" key="GridCell.Tab.1.center" timestamp="1585159077403">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1864" height="316" key="GridCell.Tab.1.center/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585159077403" />
+    <state width="1864" height="316" key="GridCell.Tab.1.left" timestamp="1585159077403">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1864" height="316" key="GridCell.Tab.1.left/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585159077403" />
+    <state width="1864" height="316" key="GridCell.Tab.1.right" timestamp="1585159077403">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1864" height="316" key="GridCell.Tab.1.right/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585159077403" />
+    <state x="594" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1585210072179">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="594" y="300" key="com.intellij.ide.util.TipDialog/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585210072179" />
+    <state x="226" y="42" key="new project wizard" timestamp="1585210125533">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="226" y="42" key="new project wizard/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585210125533" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="this" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
