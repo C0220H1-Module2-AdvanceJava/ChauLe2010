@@ -1,5 +1,35 @@
-public  abstract class Shape {
+public class Shape {
+    public String color = "xanh";
+    public boolean filled = true;
 
-    abstract void draw(int a);//khai bao
+    public Shape(){
+    }
+
+    public Shape(String color, boolean filled){
+        this.color = color;
+        this.filled = filled;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public boolean isFilled() {
+        return filled;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setFilled(boolean filled) {
+        this.filled = filled;
+    }
+
+    @Override
+    public String toString() {
+        return "một hình được tô màu " +  getColor()
+                + " và"  + (isFilled() ? " filled" : " not filled");
+    }
 
 }
