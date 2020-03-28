@@ -1,9 +1,16 @@
+import geometric.*;
+import geometric.circle.Circle;
+import geometric.cylinder.Cylinder;
+import geometric.rectangle.Rectangle;
+import geometric.square.Square;
+import geometric.triangle.Triangle;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Geometric shape = new Geometric();
+        Geometric shape = null;
         int choice;
         boolean isExit = false;
 
@@ -14,7 +21,6 @@ public class Main {
             System.out.println("3. Triangle");
             System.out.println("4. Circle");
             System.out.println("5. Cylinder");
-            System.out.println("6. Test Case");
             System.out.println("0. Exit program");
             System.out.print("Enter choice: ");
             choice = scanner.nextInt();
@@ -23,37 +29,60 @@ public class Main {
                     && choice != 2
                     && choice != 3
                     && choice != 4
-                    && choice != 5
-                    && choice != 6) {
+                    && choice != 5) {
                 System.out.println("Invalid choice! Please choose again.");
                 System.out.println();
-            } else if (choice != 0) {
-
+            }
+            switch (choice) {
+                case 1:
+                    shape = new Rectangle();
+                    System.out.println("1. Calculate");
+                    System.out.println("2. Test case");
+                    System.out.println("Enter choice: ");
+                    choice = scanner.nextInt();
+                    break;
+                case 2:
+                    shape = new Square();
+                    System.out.println("1. Calculate");
+                    System.out.println("2. Test case");
+                    System.out.println("Enter choice: ");
+                    choice = scanner.nextInt();
+                    break;
+                case 3:
+                    shape = new Triangle();
+                    System.out.println("1. Calculate");
+                    System.out.println("2. Test case");
+                    System.out.println("Enter choice: ");
+                    choice = scanner.nextInt();
+                    break;
+                case 4:
+                    shape = new Circle();
+                    System.out.println("1. Calculate");
+                    System.out.println("2. Test case");
+                    System.out.println("Enter choice: ");
+                    choice = scanner.nextInt();
+                    break;
+                case 5:
+                    shape = new Cylinder();
+                    System.out.println("1. Calculate");
+                    System.out.println("2. Test case");
+                    System.out.println("Enter choice: ");
+                    choice = scanner.nextInt();
+                    break;
+                case 0:
+                    System.out.println("Exit Program!");
+                    isExit = true;
+            }
+            if (shape != null) {
                 switch (choice) {
                     case 1:
-                        shape = new Rectangle();
+                        shape.inputData();
+                        shape.displayData();
                         break;
                     case 2:
-                        shape = new Square();
-                        break;
-                    case 3:
-                        shape = new Triangle();
-                        break;
-                    case 4:
-                        shape = new Circle();
-                        break;
-                    case 5:
-                        shape = new Cylinder();
-                        break;
-                    case 6:
                         shape.testCase();
                         break;
                 }
-                shape.inputData();
-                shape.displayData();
-            } else {
-                System.out.println("Exit program!");
-                isExit = true;
             }
         } while (!isExit);
     }
