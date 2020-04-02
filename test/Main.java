@@ -1,6 +1,8 @@
-import controller.ArrayListStudent;
+import controller.StudentManagement;
 import model.Student;
-
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -8,87 +10,95 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int choice;
         boolean isExit = false;
-        ArrayListStudent listStudent;
-        System.out.println("Student Management Program!");
-        System.out.println("1. Manage Student by ArrayList");
-        System.out.println("2. Manage Student by LinkedList");
-        System.out.println("0. Exit program!");
-        System.out.print("Enter choice: ");
-        choice = scanner.nextInt();
+        StudentManagement studentManagement = new StudentManagement();
+        List<Student> studentList = new ArrayList<>();
+
+        do {
+            System.out.println("Student Management Program!");
+            System.out.println("1. Manage Student by ArrayList");
+            System.out.println("2. Manage Student by LinkedList");
+            System.out.println("0. Exit program!");
+            System.out.print("Enter choice: ");
+            choice = scanner.nextInt();
+        } while (!isValidChoice(choice));
+
         switch (choice) {
             case 1:
-                listStudent = new ArrayListStudent();
-                listStudent.add(new Student("10",8.5,"vanduc2514@gmail.com"));
-                listStudent.add(new Student("11",1,"anhnam2514@gmail.com"));
-                do {
-                    displayMenu();
-                    choice = scanner.nextInt();
-                    if (isValidChoice(choice)) {
-                        switch (choice) {
-                            case 0:
-                                System.out.println("Exit Program!");
-                                isExit = true;
-                                break;
-                            case 1:
-                                listStudent.addAllStudent();
-                                break;
-                            case 2:
-                                listStudent.searchStudentByID();
-                                break;
-                            case 3:
-                                listStudent.searchStudentByName();
-                                break;
-                            case 4:
-                                listStudent.updateStudentByID();
-                                break;
-                            case 5:
-                                listStudent.updateStudentByName();
-                                break;
-                            case 6:
-                                listStudent.removeStudentByID();
-                                break;
-                            case 7:
-                                listStudent.removeStudentByName();
-                                break;
-                            case 8:
-                                listStudent.display();
-                                break;
-                            case 9:
-                                listStudent.displayFemaleStudent();
-                                break;
-                            case 10:
-                                listStudent.displayStudentHasScholarship();
-                                break;
-                        }
-                    }
-                } while (!isExit);
+                studentList = new ArrayList<>();
+                studentList.add(new Student("10", 8.5, "vanduc2514@gmail.com"));
+                studentList.add(new Student("11", 1, "anhnam420@gmail.com"));
+                System.out.println("You are using ArrayList for managing student");
                 break;
             case 2:
+                studentList = new LinkedList<>();
+                studentList.add(new Student("10", 8.5, "vanduc@gmail.com"));
+                studentList.add(new Student("11", 1, "anhnam@gmail.com"));
+                System.out.println("You are using LinkList for managing student");
                 break;
             case 0:
                 System.out.println("Exit Program!");
-                System.exit(0);
+                isExit = true;
                 break;
         }
 
-
-    }
-
-    private static void displayMenu() {
-        System.out.println("---------------------------------");
-        System.out.println("1. Add Student");
-        System.out.println("2. Search Student's information by id");
-        System.out.println("3. Search Student's information by name");
-        System.out.println("4. Edit Student's information by id");
-        System.out.println("5. Edit Student's information by name");
-        System.out.println("6. Delete Student by id");
-        System.out.println("7. Delete Student by name");
-        System.out.println("8. Display List Student");
-        System.out.println("9. Display Female Student");
-        System.out.println("10. Display Student has Scholarship");
-        System.out.println("11. Add Student by position in List");
-        System.out.println("0. Exit Program!");
-        System.out.print("Enter choice: ");
+        while (!isExit) {
+            System.out.println("---------------------------------");
+            System.out.println("1. Add Student");
+            System.out.println("2. Search Student's information by id");
+            System.out.println("3. Search Student's information by name");
+            System.out.println("4. Edit Student's information by id");
+            System.out.println("5. Edit Student's information by name");
+            System.out.println("6. Delete Student by id");
+            System.out.println("7. Delete Student by name");
+            System.out.println("8. Display List Student");
+            System.out.println("9. Display Female Student");
+            System.out.println("10. Display Student has Scholarship");
+            System.out.println("11. Add Student by position in List");
+            System.out.println("0. Exit Program!");
+            System.out.print("Enter choice: ");
+            choice = scanner.nextInt();
+            if (isValidChoice(choice)) {
+                switch (choice) {
+                    case 1:
+                        studentManagement.addAllStudent(studentList);
+                        break;
+                    case 2:
+                        studentManagement.searchStudentByID(studentList);
+                        break;
+                    case 3:
+                        studentManagement.searchStudentByName(studentList);
+                        break;
+                    case 4:
+                        studentManagement.updateStudentByID(studentList);
+                        break;
+                    case 5:
+                        studentManagement.updateStudentByName(studentList);
+                        break;
+                    case 6:
+                        studentManagement.removeStudentByID(studentList);
+                        break;
+                    case 7:
+                        studentManagement.removeStudentByName(studentList);
+                        break;
+                    case 8:
+                        studentManagement.display(studentList);
+                        break;
+                    case 9:
+                        studentManagement.displayFemaleStudent(studentList);
+                        break;
+                    case 10:
+                        studentManagement.displayStudentHasScholarship(studentList);
+                        break;
+                    case 11:
+                        studentManagement.addStudentByIndex(studentList);
+                        break;
+                    case 0:
+                        System.out.println("Exit Program!");
+                        isExit = true;
+                        break;
+                }
+            }
+        }
     }
 
     private static boolean isValidChoice(int choice) {
@@ -97,6 +107,7 @@ public class Main {
                 return true;
             }
         }
+        System.out.println("Invalid Choice! Please choose again!");
         return false;
     }
 }
