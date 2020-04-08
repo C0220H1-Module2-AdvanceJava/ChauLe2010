@@ -2,131 +2,85 @@ package controller;
 
 import model.Student;
 
-import java.util.List;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.util.*;
 
 public class StudentManagement {
-    private Scanner scanner = new Scanner(System.in);
-
-    public void display(List<Student> list) {
-        int index = 1;
-        for (Student student : list) {
-            System.out.println("Student: " + index);
-            student.displayData();
-            index++;
-        }
-    }
-
-    public void displayStudentHasScholarship(List<Student> list) {
-        int index = 1;
+    public Collection<Student> findStudentHasScholarship(List<Student> list) {
+        List<Student> scholarShip = new LinkedList<>();
         for (Student student : list) {
             if (student.isValidForScholarship()) {
-                System.out.println("Student: " + index);
-                student.displayData();
-                index++;
+                scholarShip.add(student);
             }
         }
+        return scholarShip;
     }
 
-    public void displayFemaleStudent(List<Student> list) {
-        int index = 1;
+    public Collection<Student> findFemaleStudent(List<Student> list) {
+        List<Student> females = new LinkedList<>();
         for (Student student : list) {
             if (student.isFemale()) {
-                System.out.println("Student: " + index);
-                student.displayData();
-                index++;
+                females.add(student);
             }
         }
+        return females;
     }
 
-    public void addAllStudent(List<Student> list) {
-        System.out.print("Enter amount of students: ");
-        int amount = scanner.nextInt();
-        for (int index = 1; index <= amount; index++) {
-            System.out.println("Student: " + index);
-            Student student = new Student();
-            student.inputData();
-            list.add(student);
-        }
-    }
-
-    public Student searchStudentByID(List<Student> list) {
-        System.out.print("Enter Student's ID: ");
-        String id = scanner.next();
+    public Student searchStudentByID(List<Student> list, String id) {
         for (Student student : list) {
             if (student.getStudentID().equals(id)) {
-                student.displayData();
                 return student;
             }
         }
-        System.out.println("Student not in the list!");
         return null;
     }
 
-    public Student searchStudentByName(List<Student> list) {
-        System.out.print("Enter Student's name: ");
-        String name = scanner.nextLine();
+    public Student searchStudentByName(List<Student> list, String name) {
         for (Student student : list) {
-            if (student.getStudentID().equals(name)) {
-                student.displayData();
+            if (student.getName().equals(name)) {
                 return student;
             }
         }
-        System.out.println("Student not in the list!");
         return null;
     }
 
-    public void updateStudentByID(List<Student> list) {
-        Student student = searchStudentByID(list);
+    public void removeStudent(List<Student> list, Student student) {
         if (student != null) {
-            System.out.println("Data's above will be replaced! ");
-            student.inputData();
+            list.remove(student);
         }
     }
 
-    public void updateStudentByName(List<Student> list) {
-        Student student = searchStudentByName(list);
-        if (student != null) {
-            System.out.println("Data's above will be replaced! ");
-            student.inputData();
-        }
-    }
-
-    public void removeStudentByID(List<Student> list) {
-        Student student = searchStudentByID(list);
-        if (student != null) {
-            System.out.println("Data's above will be deleted! ");
-            System.out.print("Do you want to delete ? (yes/no): ");
-            char choice = scanner.next().charAt(0);
-            if (choice == 'y') {
-                list.remove(student);
-                System.out.println("Successful!");
-            }
-        }
-    }
-
-    public void removeStudentByName(List<Student> list) {
-        Student student = searchStudentByName(list);
-        if (student != null) {
-            System.out.println("Data's above will be deleted! ");
-            System.out.print("Do you want to delete ? (yes/no): ");
-            char choice = scanner.next().charAt(0);
-            if (choice == 'y') {
-                list.remove(student);
-                System.out.println("Successful!");
-            }
-        }
-    }
-
-    public void addStudentByIndex(List<Student> list) {
-        System.out.print("Enter position you want to add: ");
-        int index = scanner.nextInt();
+    public boolean addStudentByIndex(List<Student> list, Student student, int index) {
         if (index < list.size()) {
-            Student newStudent = new Student();
-            newStudent.inputData();
-            list.add(index,newStudent);
-            return;
+            list.add(index, student);
+            return true;
         }
-        System.out.println("Cannot add! Please enter a position in list's range!");
+        return false;
+    }
+
+    public void sortByName(List<Student> list) {
+        Collections.sort(list);
+    }
+
+
+    public void sortByAge(List<Student> list) {
+        Collections.sort(list, new Comparator<Student>() {
+            @Override
+            public int compare(Student student1, Student student2) {
+                int age1 = LocalDate.now().getYear() - student1.getBirthDate().getYear();
+                int age2 = LocalDate.now().getYear() - student2.getBirthDate().getYear();
+                return age1 - age2;
+            }
+        });
+    }
+
+
+    public void sortByAverageScore(List<Student> list) {
+        Collections.sort(list, new Comparator<Student>() {
+            @Override
+            public int compare(Student student1, Student student2) {
+                return (int) (student1.getAverageScore() - student2.getAverageScore());
+            }
+        });
     }
 }

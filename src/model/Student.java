@@ -1,21 +1,15 @@
 package model;
 
-import java.util.Scanner;
+import java.time.LocalDate;
 
-public class Student extends Person {
+public class Student extends Person implements Comparable<Student>{
     private String studentID;
     private double averageScore;
     private String email;
     public static final double MINIMUM_SCHOLARSHIP_SCORE = 8.0;
 
-    public Student(String name, String gender, int[] birthDate, String address, String studentID, double averageScore, String email) {
+    public Student(String name, String gender, LocalDate birthDate, String address, String studentID, double averageScore, String email) {
         super(name, gender, birthDate, address);
-        this.studentID = studentID;
-        this.averageScore = averageScore;
-        this.email = email;
-    }
-
-    public Student(String studentID, double averageScore, String email) {
         this.studentID = studentID;
         this.averageScore = averageScore;
         this.email = email;
@@ -48,38 +42,23 @@ public class Student extends Person {
     }
 
     public boolean isValidForScholarship() {
-        if (averageScore >= MINIMUM_SCHOLARSHIP_SCORE) {
-            return true;
-        }
-        return false;
+        return averageScore >= MINIMUM_SCHOLARSHIP_SCORE;
     }
 
     public boolean isFemale() {
-        if (getName().equals("female")) {
-            return true;
-        }
-        return false;
+        return getName().equals("female");
     }
 
     @Override
-    public void inputData() {
-        Scanner scanner = new Scanner(System.in);
-        super.inputData();
-        System.out.print("Enter StudentID: ");
-        studentID = scanner.next();
-        System.out.print("Enter average Score: ");
-        averageScore = scanner.nextDouble();
-        scanner.nextLine();
-        System.out.print("Enter Student email: ");
-        email = scanner.nextLine();
+    public String toString() {
+        return  super.toString() + '\n' +
+                "StudentID: " + studentID + '\n' +
+                "AverageScore: " + averageScore + '\n' +
+                "Email: " + email;
     }
 
     @Override
-    public void displayData() {
-        super.displayData();
-        System.out.printf("StudentID: %s \n",studentID);
-        System.out.printf("Average Score: %.2f \n",averageScore);
-        System.out.printf("Email: %s \n", email);
-        System.out.printf("Is Valid for scholarship: %s \n",isValidForScholarship());
+    public int compareTo(Student student) {
+        return this.getName().compareTo(student.getName());
     }
 }

@@ -1,21 +1,23 @@
 package model;
 
-import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Person {
+    private static final LocalDate DEFAULT_BIRTH = LocalDate.of(1999,9,19);
     private String name;
     private String gender;
-    private int[] birthDate = new int[3];
+    private LocalDate birthDate = DEFAULT_BIRTH;
     private String address;
 
-    public Person(String name, String gender, int[] birthDate, String address) {
+    public Person(String name, String gender, LocalDate birthDate, String address) {
         this.name = name;
         this.gender = gender;
         this.birthDate = birthDate;
         this.address = address;
     }
 
-    public Person() {}
+    public Person() {
+    }
 
     public String getName() {
         return name;
@@ -33,11 +35,11 @@ public class Person {
         this.gender = gender;
     }
 
-    public int[] getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(int[] birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -49,29 +51,11 @@ public class Person {
         this.address = address;
     }
 
-    public void inputData() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter Name: ");
-        name = scanner.nextLine();
-        System.out.print("Enter Gender (Male/Female): ");
-        gender = scanner.next();
-        System.out.println("Enter Birth Date ");
-        System.out.print("Enter Day: ");
-        birthDate[0] = scanner.nextInt();
-        System.out.print("Enter Month: ");
-        birthDate[1] = scanner.nextInt();
-        System.out.print("Enter Year: ");
-        birthDate[2] = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Enter address: ");
-        address = scanner.nextLine();
-    }
-
-    public void displayData() {
-        System.out.println("-------------------------------");
-        System.out.printf("Name: %s \n", name);
-        System.out.printf("Gender: %s \n", gender);
-        System.out.printf("Date of Birth: %d/%d/%d \n", birthDate[0],birthDate[1],birthDate[2]);
-        System.out.printf("Address: %s \n", address);
+    @Override
+    public String toString() {
+        return  "Name: " + name + '\n' +
+                "Gender: " + gender + '\n' +
+                "Birth Day: " + birthDate.toString() + '\n' +
+                "Address: " + address;
     }
 }
