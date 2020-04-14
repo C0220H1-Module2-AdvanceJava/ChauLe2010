@@ -1,84 +1,66 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ProductManager extends Product{
-    ArrayList<Product> listProduct = new ArrayList<>();
+public class ProductManager {
+    public static HashMap<String, Product> productHashMap = new HashMap<>();
 
-    public ArrayList<Product> getListProduct(){
-        return listProduct;
+    public static void main(String[] args) throws Exception {
+        readFromDatabase(); // requirement
+
+        addProduct("2","ka","vietnam","1000vnd","tutor");
+        showProducts();
+
+        writeToDatabase(); // requirement
     }
 
-    public void insertProduct(int ID,String name,float price){
-        Product newProduct = new Product(ID,name, (int)price);
-        listProduct.add(newProduct);
-//            System.out.println("Thêm thành công");
-    }
-
-    public void removeProduct(int ID) {
-        boolean isProduct = false;
-        for (Product product:listProduct){
-            if (product.getID() == ID){
- m                listProduct.remove(product);
-                System.out.println("Đã xóa thành công");
-                isProduct = true;
-                break;
+    public static void writeToDatabase() throws Exception {
+        FileOutputStream fileOutput = new FileOutputStream("product.txt");
+        try {
+            ObjectOutputStream output = new ObjectOutputStream(fileOutput);
+            for(Map.Entry<String,Product> entry : productHashMap.entrySet()){
+                output.writeObject(entry.getValue());
             }
-        }
-
-        if (!isProduct){
-            System.out.println("Sản phẩm không tồn tại, thử lại.");
-        }
-    }
-
-    public void searchProduct(String name) {
-        boolean isProduct = false;
-        for (Product product:listProduct){
-            if (product.getName().equals(name)){
-                System.out.println("Your phone: " + product.toString());
-                isProduct = true;
-                break;
-            }
-        }
-        if (!isProduct){
-            System.out.println("Không tìm thấy");
+            output.flush();
+            output.close();
+        } catch (Exception e){
+            System.out.println(e);
         }
     }
 
-    public void updateProduct(int ID,String name,float price) {
-        boolean isProduct = false;
-        for (Product product:listProduct){
-            if (product.getID() == ID){
-                product.setName(name);
-                product.setPrice(price);
-                System.out.println("Thay đổi thành công");
-                isProduct = true;
-                break;
+    public static void readFromDatabase() throws Exception {
+        FileInputStream fileInput = new FileInputStream("product.txt");
+        try {
+            ObjectInputStream input = new ObjectInputStream(fileInput);
+            Product product;
+            while((product = (Product) input.readObject()) != null){
+                productHashMap.put(product.getId(),product);
             }
-        }
-        if (!isProduct){
-            System.out.println("Sản phẩm đã tồn tại");
+            input.close();
+        } catch (EOFException e){
+            System.out.println("Load success");
+        } catch (Exception e){
+            System.out.println(e);
         }
     }
 
-    public void sortProduct() {
-        Collections.sort(listProduct, new Comparator<Product>() {
-            public int compare(Product product1, Product product2) {
-                if (product1.getPrice() > product2.getPrice()){
-                    return 1;
-                }else if (product1.getPrice() == product2.getPrice()){
-                    return 0;
-                }else{
-                    return -1;
-                }
-            }
+    public static void addProduct(String id,String name,String manufacturer,String price,String description) throws Exception {
+        readFromDatabase();
+        productHashMap.put(id,new Product(id,name,manufacturer,price,description));
+        writeToDatabase();
+    }
+
+    public static void showProducts() throws Exception{
+        readFromDatabase();
+        productHashMap.forEach((k,v) -> {
+            System.out.println(v.toString());
         });
-        System.out.println("Đã sắp xếp");
     }
 
-    public void displayListProduct(){
-        for (Product product:listProduct){
-            System.out.println("Tên: " + product.getName() +", giá: " + product.getPrice());
-        }
+    public static void searchProducts(String key) throws Exception {
+        readFromDatabase();
+        System.out.println(productHashMap.get(key).toString());
     }
+
+
 }
