@@ -1,3 +1,7 @@
+package geometric.square;
+
+import geometric.Geometric;
+
 public class Square extends Geometric {
     private double side;
     private static final int COEFFICIENT = 4;
@@ -11,7 +15,8 @@ public class Square extends Geometric {
     }
 
     public Square(String color, boolean filled, double side) {
-        super(color, filled);
+        super.setColor(color);
+        super.setFilled(filled);
         this.side = side;
     }
 
@@ -75,5 +80,17 @@ public class Square extends Geometric {
     @Override
     public void displayData() {
         System.out.printf("Perimeter: %.2f - Area: %.2f \n \n",getPerimeter(),getArea());
+    }
+
+    @Override
+    public void testCase() {
+        //Test class geometric.square.Square
+        Geometric square = new Square();
+        System.out.println(square);
+        square = new Square(2.3);
+        System.out.println(square);
+        square = new Square("yellow", true, 5.8);
+        System.out.println(square);
+        System.out.println();
     }
 }

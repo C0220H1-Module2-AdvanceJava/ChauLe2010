@@ -1,3 +1,7 @@
+package geometric.circle;
+
+import geometric.Geometric;
+
 public class Circle extends Geometric {
     private double radius;
     private static final int COEFFICIENT = 2;
@@ -12,7 +16,8 @@ public class Circle extends Geometric {
     }
 
     public Circle(String color, boolean filled, double radius) {
-        super(color, filled);
+        super.setColor(color);
+        super.setFilled(filled);
         this.radius = radius;
     }
 
@@ -60,7 +65,7 @@ public class Circle extends Geometric {
 
     @Override
     public String toString() {
-        return "A Circle with radius = "
+        return "A geometric.circle.Circle with radius = "
                 + radius
                 + ", which is a subclass of "
                 + super.toString()
@@ -73,14 +78,24 @@ public class Circle extends Geometric {
 
     @Override
     public void inputData() {
-        super.inputData();
         System.out.print("Enter radius: ");
         setRadius(super.scanner.nextDouble());
     }
 
     @Override
     public void displayData() {
-        super.displayData();
         System.out.printf("Perimeter: %.2f - Area: %.2f \n \n",getPerimeter(),getArea());
+    }
+
+    @Override
+    public void testCase() {
+        //Test class geometric.circle.Circle
+        Geometric circle = new Circle();
+        System.out.println(circle);
+        circle = new Circle(3.5);
+        System.out.println(circle);
+        circle = new Circle("indigo", false, 10);
+        System.out.println(circle);
+        System.out.println();
     }
 }

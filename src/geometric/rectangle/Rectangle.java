@@ -1,3 +1,7 @@
+package geometric.rectangle;
+
+import geometric.Geometric;
+
 public class Rectangle extends Geometric {
     private double width;
     private double length;
@@ -14,7 +18,8 @@ public class Rectangle extends Geometric {
     }
 
     public Rectangle(String color, boolean filled, double width, double length) {
-        super(color, filled);
+        super.setColor(color);
+        super.setFilled(filled);
         this.width = width;
         this.length = length;
     }
@@ -90,6 +95,19 @@ public class Rectangle extends Geometric {
 
     @Override
     public void displayData() {
-        System.out.printf("Perimeter: %.2f - Area: %.2f \n \n",getPerimeter(),getArea());
+        System.out.printf("Perimeter: %.2f - Area: %.2f \n \n", getPerimeter(), getArea());
+    }
+
+    @Override
+    public void testCase() {
+        //Test class geometric.rectangle.Rectangle
+        Geometric rectangle = new Rectangle();
+        System.out.println(rectangle);
+        rectangle = new Rectangle(2.3, 5.8);
+        System.out.println(rectangle);
+        rectangle = new Rectangle("orange", true, 2.3, 5.8);
+        System.out.println(rectangle);
+        System.out.println();
+
     }
 }
